@@ -1,5 +1,5 @@
 ## Status
-Devices could publish status to:
+Sites publish status to:
 `status/<id>/<component>/<module>/<status>`
 
 Where:
