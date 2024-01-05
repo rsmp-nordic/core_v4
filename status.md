@@ -2,14 +2,14 @@
 Sites publish status to:
 `status/<id>/<component>/<module>/<status>`
 
-Where:
-id: unique id of the device
-component: component delivering the data
-module: module containing this type of status
-status: the type of status
+- id: unique id of the device
+- component: component delivering the data
+- module: module containing this type of status
+- status: the type of status
+- the payload contains the status attributes.
 
-For example, suppose a traffic sensor with the id 12d9 sends traffic counts once per minut, using a component 'dl1', a status called 'volume' in a module called 'traffic':
-`status/12d9/main/traffic/volume`
+For example, a traffic sensor with the id `12d9` which reports traffic counts from the component `dl1`, using the status `volume` in the module `traffic`, would publish to the topic
+`status/12d9/dl1/traffic/volume`.
 
 The payload would contain the actual data.
 
