@@ -26,7 +26,7 @@ All video detectors: `dl/video`
 All signal groups: `sg`  
 
 ## Main component
-Exactly one component at root leve must be configured to the main comnponent, and this component can be used to refer to the device as a whole.
+Exactly one root level component must be configured as the main comnponent. This component can be used to refer to the device as a whole.
 As a shorthand, an empty component path can be used to refer to the main component. In RSMP 4 topic path this is done by leaving out the component path entirely.
  
 ## Component Names
