@@ -21,9 +21,12 @@ Note that component paths does not include the site id.
 ## Component Groups
 You can address groups of component by pointing to intermediate levels. For example:
 
-All detector logics: `dl`  
-All video detectors: `dl.vide.`  
-All signal groups: `sg`  
+```
+sg        # All signal groups
+dl        # All detector logics
+dl.video  # All video detectors
+dl.loop   # All loop detectors
+```
 
 ## Main component
 Exactly one root level component must be configured as the main comnponent. This component is used to refer to the device as a whole.
