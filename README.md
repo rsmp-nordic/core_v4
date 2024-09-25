@@ -18,4 +18,4 @@ We use the [discussion area](https://github.com/rsmp-nordic/rsmp_core_v4/discuss
 
 ## Issues
 The [issue tracker](https://github.com/rsmp-nordic/rsmp_core_v4/issues) is used if something needs to be changed in the draft specification.
-For general discussion, use the [discussion area](https://github.com/rsmp-nordic/rsmp_core_v4/discussions.
+For general discussion, use the [discussion area](https://github.com/rsmp-nordic/rsmp_core_v4/discussions).
