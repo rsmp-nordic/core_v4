@@ -1,12 +1,13 @@
 # Nodes and Modules
 
 ## Nodes
-RSMP 4 unifies the concept of sites and supervisors  into a generic concept of a node, which can act as both a site and a supervisor.
+RSMP 4 unifies the concept of sites and supervisors  into the concept of a node, which can act as both as a site and a supervisor.
 
 ```mermaid
  graph LR;
-      A[Node]---B[Node];
-      B[Node]---A[Node];
+      A[Node]<--->X[Node];
+      B[Node]<--->X[Node];
+      C[Node]<--->X[Node];
 ```
 
 In RSMP 3, a supervisor has an initiating role, while a site has a reponding role, but this is limiting because:
