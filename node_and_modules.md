@@ -27,8 +27,7 @@ A module has two ends that interact, the service and the manager. A node typical
 
 ```mermaid
  graph LR;
-      A[Service]---B[Manager];
-      B[Manager]---A[Service];
+      A[Service]<--->B[Manager];
 ```
 
 ## Service
