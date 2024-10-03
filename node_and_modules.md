@@ -1,39 +1,28 @@
-# Nodes and Modules
+# Modules
+A node implement modules to support specific types or hardware or functionality, e.g. traffic light control, sensor data, log files or scenario management.
 
-## Nodes
-RSMP 4 unifies the concept of sites and supervisors  into the concept of a node, which can act as both as a site and a supervisor.
+A modules defines an interface consisting of commands, statuses and alarms. It can also defines behaviour.
 
-```mermaid
- graph LR;
-      A[Node]<--->X[Node];
-      B[Node]<--->X[Node];
-      C[Node]<--->X[Node];
-```
+A modules works with components of specific types. For example, a traffic light control module might work with signal groups and detector logics.
 
-In RSMP 3, a supervisor has an initiating role, while a site has a reponding role, but this is limiting because:
-- a TLC might needs to send commands to other sites, so it's initiating.
-- a central system might receive commands from another systems, so it's responding.
-
-## Modules
-A module handles a type of hardware or functionality, e.g. traffic light controllers, sensors, log files or scenario management.
-
-A modules defines an interface consisting of commands, statuses and alarms. It can also defines behaviour and state.
-
-A modules defines the types of components it works with. For example, traffic light control involves signal groups and detector logics.
-
-A command, status or alarm can operate on one or more compoments.
+Different modules can work with the same kind of component. For example, a traffic light control module and a sensor data module might both work with detector logic components.
 
 A module has two ends that interact, the service and the manager. A node typically implements either the service or the manager end of a module, but can implement both.
 
 ```mermaid
- graph LR;
-      A[Service]<--->B[Manager];
+graph LR
+  service
+  manager
+  service-- status,alarm --> manager 
+  manager -- command --> service
 ```
 
 ## Service
 The service end of a module maintains internal status and often runs some kind of process.
 
 A service receives commands from managers of the same type and sends statuses and alarms to them. 
+
+For example, here's a node that implement two module services:
 
 ```
 node A 
@@ -48,6 +37,8 @@ The manager end of a module is used to manage coresponding services running on r
 A manager sends commands to a service or the same type, and receives statuses and alarms from the service. 
 
 A manager maintains a local cache of the status of the remote service.
+
+For example, here's a node that manages two services in another node:
 
 ```
 node B
