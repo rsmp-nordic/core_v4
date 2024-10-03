@@ -22,31 +22,12 @@ The service end of a module maintains internal status and often runs some kind o
 
 A service receives commands from managers of the same type and sends statuses and alarms to them. 
 
-For example, here's a node that implement two module services:
-
-```
-node A 
-  service X
-  service Y
-  (no remotes)
-```
-
 ## Manager
 The manager end of a module is used to manage coresponding services running on remote nodes.
 
-A manager sends commands to a service or the same type, and receives statuses and alarms from the service. 
+A manager sends commands to a service of the same type, and receives statuses and alarms from the service. 
 
 A manager maintains a local cache of the status of the remote service.
-
-For example, here's a node that manages two services in another node:
-
-```
-node B
-  (no services)
-  remote A
-    manager X
-    manager Y
-```
 
 ## Remotes
 A node keeps a list of remote nodes that it neeeds to manages (send commands to or collect status from).
