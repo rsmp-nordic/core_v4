@@ -41,7 +41,7 @@ Component types are defines by modules. For example, the signal groups and detec
 
 A module can work with component types defined by other module. For example, a sensor module might work with detector logic components defines by a traffic light module.
 
-A module can defines commands or statuses that work with arbitrary component types. For example, a generic info module might work with components of any type to provide the name and configuration of any component, as well as list components.
+A module can define commands or statuses that work with arbitrary component types. For example, a generic info module might work with components of any type to provide the name and configuration of any component, as well as list components.
 
 ## Component Groups
 You can address groups of component using intermediate levels. For example:
