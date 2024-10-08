@@ -1,4 +1,15 @@
 ## Command
+```
+command/<module>/<code>/<receiver>[/<component>]
+````
+
+Examples:
+```
+comamand/tlc/2/45fe             # M0002 set signal plan status (for main component) on node 45fe
+comamand/traffic/17/45fe/sg.1   # hyopthetical M0017 set detector treshold for sigmal group 1 on node 45fe
+```
+
+
 All devices subscribe to a command topic that includes their id, which the supervisor can publish to. 
 
 Device subscribe to  `command/<id>/<component>/<module>/<cmd>`
