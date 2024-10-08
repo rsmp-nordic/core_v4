@@ -1,5 +1,14 @@
-# Connect
+# Presence
 Supervisors are informed whenever sites come online or go offline.
+
+```
+presence/<sender>
+````
+
+Examples:
+```
+presence/45fe   # node 45fe went online/offline
+```
 
 ## Versioning
 Sites and supervisor must use compatible version of MQTT. This is handled by the MQTT protocol and the broker.
