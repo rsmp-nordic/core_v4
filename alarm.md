@@ -1,4 +1,13 @@
-# Alarms
+# Alarm
+```
+alarm/<module>/<code>/<sender>[/<component>]
+````
+
+Examples:
+```
+alarm/tlc/1/45fe   # A0001 serious hardware error (for main component) on node 45fe
+alarm/tlc/301/45fe/dl.7   # A0301 serious deteector error for component dl.7 on node 45fe
+```
 
 ## Publishing
 Devices publish to:
