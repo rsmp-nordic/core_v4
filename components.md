@@ -1,16 +1,6 @@
 # Components
 A node has one or more components, representing physical of logical elements.
 
-```
-node
-  traffic controller as a whole
-  signal group 1
-  signal group 2
-  radar detector 1
-  radar detector 2
-```
-
-## Component Ids
 Components are referenced using component ids, which must be unique per node.
 
 A component id consists of one or more levels, separated by dots. For example, a traffic light controller (tc) with two signal groups (sg) and four detector logics (dl) might have these component ids:
