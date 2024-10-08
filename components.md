@@ -27,13 +27,11 @@ Unlike RSMP 3, RSMP 4 component ids does not include the node id. RMSP 3 compone
 ## Component Types
 Each component has a specific component type, like signal group or detector logic.
 
-Component types are defines by modules. For example, the signal groups and detector logic types might be defined by a traffic light controller module.
+Modules typically work with specific component types. For example, the traffic light controller module  work with signal groups and detector logic.
 
-A module can work with component types defined by other module. For example, a sensor module might work with detector logic components defines by a traffic light module.
+A module can define messages that work with arbitrary component types. For example, a generic `system` module might work with components of any type to ftch the name and configuration of any component or to list components.
 
-A module can define commands or statuses that work with arbitrary component types. For example, a generic info module might work with components of any type to provide the name and configuration of any component, as well as list components.
-
-## Component Groups and Lists
+## Component Groups
 You can address groups of component using intermediate levels. For example:
 
 ```
@@ -43,7 +41,7 @@ dl/video  # All video detectors
 dl/rader  # All radar detectors
 ```
 
-Lists of components can be addressed with a commas separate list enclosed in brackets:
+Lists of specific components can be addressed with a comma-separated list:
 
 ```
 dl/video/1,2   # Video detectors 1 and 2
@@ -62,19 +60,23 @@ Hyphen can be used for ranges of components:
 dl/radar/2-4      # Radar detector from to 2 to 4, ie. 2, 3 and 4
 ```
 
+You can combine commas and hyphens
+```
+dl/radar/2-6,15-19,25
+```
+
 Whitespace is not allowed before or after commas and hyphens.
 
-## Component ids in topic paths
+## Component ids and Topic Paths
 Component ids are used in topic paths, for example:
 
 ```
 alarm/tlc/301/45fe/dl/6         # A0301 error for component dl.6 on node 45fe
-alarm/tlc/301/45fe/dl/7         # A0301 error for component dl.7 on node 45fe
-comamand/traffic/17/45fe/sg/1   # Command M0017 to sigmal group 1 on node 45fe
+comamand/sensor/17/45fe/sg/1   # Command M0017 to sigmal group 1 on node 45fe
 ```
 
 RSMP 4 is based on MQTT which allow the last payload published to each topic path to be retained.
-In the example above, this means that the alarms for `dl.6` and `dl.7` will be retained.
+In the example above, this means that the alarms for `dl/6` and `dl/7` will be retained.
 A node subscribing to these topics, or reconnecting afer a network dropout, will then receive the latest alarm for each component.
 This is useful to make sure that a newly connected node will receive the latest status immediately.
 
@@ -86,13 +88,13 @@ On the other hand, commands can use component groups or lists, because commands 
 Exactly one root level component must be configured as the main component for each node. This component is used to refer to the device as a whole.
 
 ```
-tc     # root component
+tc     # configured as root component
 sg/1
 sg/2
 dl
 ```
 
-As a shorthand, you can use an empty component path, or leave it out, to refer to the main component. Assuming the componennt `tc` is configured as the main component, these two command achieve the same:
+You can refer to the main component by using use an empty component path or by leaving out it out. For exapmple. assuming the componennt `tc` is configured as the main component, these two command achieve the same:
 
 ```
 comamand/tlc/2/45fe/tc          # Send command to component tc
