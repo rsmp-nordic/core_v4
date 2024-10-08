@@ -24,7 +24,7 @@ MQTT allows a retained value per topic path. The component is includes as part o
 | Message type | Topic path |
 |-|-|
 | [Presence](presence.md) | `presence/<sender>` |
-| [Status](status.md) | `status/<module>/<sender>/<node>/<component>` |
+| [Status](status.md) | `status/<module>/<code>/<sender>/<component>` |
 | [Command](command.md) | `command/<module>/<code>/<receiver>/<component>` |
 | [Response](response.md) | `response/<module>/<code>/<sender>/<component>` |
 | [Alarm](alarm.md) | `alarm/<module>/<code>/<sender>/<component>` |
