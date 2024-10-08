@@ -63,7 +63,8 @@ dl/video/1,2   # Video detectors 1 and 2
 You can also list groups:
 
 ```
-dl/sg,dl                   # All signal groups and all detector logics
+sg,dl                   # All signal groups and all detector logics
+sg,dl/1                   # The first signal groups and the first detector logic
 ```
 
 Hyphen can be used for ranges of components:
