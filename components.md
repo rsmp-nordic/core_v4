@@ -17,22 +17,22 @@ A component id consists of one or more levels, separated by dots. For example, a
 
 ```
 tc
-sg.1
-sg.2
-dl.video
-dl.video.1
-dl.video.2
-dl.radar
-dl.radar.1
-dl.radar.2
-dl.radar.3
-dl.radar.4
+sg/1
+sg/2
+dl/video
+dl/video/1
+dl/video/2
+dl/radar
+dl/radar/1
+dl/radar/2
+dl/radar/3
+dl/radar/4
 ```
 
 Whitespace and non-printable characters are not allowed in component ids.
 
 
-Unlike RSMP 3, RSMP 4 component ids does not include the node id. RMSP 3 components which include site ids, like "KK+AG0503=001DL001", should be convert to RMSP 4 component ids, in this case "dl.1".
+Unlike RSMP 3, RSMP 4 component ids does not include the node id. RMSP 3 components which include site ids, like "KK+AG0503=001DL001", should be convert to RMSP 4 component ids, in this case "dl/1".
 
 ## Component Types
 Each component has a specific component type, like signal group or detector logic.
@@ -49,44 +49,38 @@ You can address groups of component using intermediate levels. For example:
 ```
 sg        # All signal groups
 dl        # All detector logics (both video and radar)
-dl.video  # All video detectors
-dl.rader  # All radar detectors
+dl/video  # All video detectors
+dl/rader  # All radar detectors
 ```
 
 ## Component Lists
 Lists of components can be addressed with a commas separate list enclosed in brackets:
 
 ```
-[dl.video.1,dl.rader.1]   # A video detector and a rader detector
+dl/video/1,2   # Video detectors 1 and 2
 ```
 
 You can also list groups:
 
 ```
-[sg,dl]                   # All signal groups and all detector logics
+dl/sg,dl                   # All signal groups and all detector logics
 ```
 
-Lists can be used for the last levels:
+Hyphen can be used for ranges of components:
 
 ```
-dl.radar.[1,3]           # Radar detector 1 and 3
+dl/radar/2-4           # Radar detector from to 2 to 4, ie. 2, 3 and 4
 ```
 
-Hyphen can be used for ranges of components for the last level:
-
-```
-dl.radar.[2-4]           # Radar detector from to 2 to 4, ie. 2, 3 and 4
-```
-
-Whitespace is not allowed before or after brackets, commas and hyphens.
+Whitespace is not allowed before or after commas and hyphens.
 
 ## Component ids in topic paths
 Component ids are used in topic paths, for example:
 
 ```
-alarm/tlc/301/45fe/dl.6         # A0301 error for component dl.6 on node 45fe
-alarm/tlc/301/45fe/dl.7         # A0301 error for component dl.7 on node 45fe
-comamand/traffic/17/45fe/sg.1   # Command M0017 to sigmal group 1 on node 45fe
+alarm/tlc/301/45fe/dl/6         # A0301 error for component dl.6 on node 45fe
+alarm/tlc/301/45fe/dl/7         # A0301 error for component dl.7 on node 45fe
+comamand/traffic/17/45fe/sg/1   # Command M0017 to sigmal group 1 on node 45fe
 ```
 
 RSMP 4 is based on MQTT which allow the last payload published to each topic path to be retained.
@@ -104,8 +98,8 @@ Exactly one root level component must be configured as the main component for ea
 
 ```
 tc     # root component
-sg.1
-sg.2
+sg/1
+sg/2
 dl
 ```
 
@@ -124,8 +118,8 @@ A traffic light controller managing a single intersection has a traffic controll
 ```
 tc        # traffic controller, configured as main component
 in        # intersection
-sg.1      # signal group
-sg.1      # signal group
+sg/1      # signal group
+sg/1      # signal group
 ```
 Since there's only one intersection, it's not necessary to nest signal group components under the intersection.
 
@@ -134,24 +128,12 @@ But it has several intersection components, under which signal groups can be nes
 
 ```
 tc         # traffic controller, configured as main component
-in.1       # intersection
-in.1.sg.1  # signal group
-in.1.sg.2  # signal group
-in.2       # intersection
-in.2.sg.1  # signal group
-in.2.sg.2  # signal group
-```
-
-An alternative to nesting signal groups under intersection, would be to use use differnt signal group component ids:
-
-```
-tc         # traffic controller, configured as main component
-in.1       # intersection
-in.2       # intersection
-sg.1       # signal group
-sg.2       # signal group
-sg.3       # signal group
-sg.4       # signal group
+in/1       # intersection
+in/1/sg/1  # signal group
+in/1/sg/2  # signal group
+in/2       # intersection
+in/2/sg/1  # signal group
+in/2/sg/2  # signal group
 ```
 
 With nesting, component ids for signal groups are slighlty longer (e.g. in.1.sg.1 vs sg.1), but on the other hand it's easy to see which intersection a signal gorup belongs to, you can reuse the same signal group names in several intersections and you have the possibility to easily address all signal groups in an intersection (e.g. in.1.sg).
