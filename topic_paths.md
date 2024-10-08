@@ -4,6 +4,7 @@ All messages follow this topic path layout:
 ```
 <type>/<module>/<code>/<node>[/<component>]
 ```
+
 - type: the type of message, either presence, statuss, command, resposne, alarm or reaction.
 - module: the name of the module
 - code: the code of command/status/alarm within the module
@@ -12,69 +13,20 @@ All messages follow this topic path layout:
 
 Attributes and data are send in the payload, not as part of the topic path.
 
+The node id represents wither a sender or a receiver, depending on the message type.
+
+The [Component path](components.md) consists or zero, one or more parts separate with slashes.
+
 MQTT allows a retained value per topic path. The component is includes as part of the topic path (except for presence messages) to ensure that you can retain status, commands an alarms for each component.
 
-## Presence
-```
-presence/<sender>
-````
+## Messages summary
 
-Examples:
-```
-presence/45fe   # node 45fe went online/offline
-```
+| Message type | Topic path |
+|-|-|
+| [Presence](presence.md) | `presence/<sender>` |
+| [Status](status.md) | `status/<module>/<sender>/<node>/<component>` |
+| [Command](command.md) | `command/<module>/<code>/<receiver>/<component>` |
+| [Response](response.md) | `response/<module>/<code>/<sender>/<component>` |
+| [Alarm](alarm.md) | `alarm/<module>/<code>/<sender>/<component>` |
+| [Reaction](reaction.md) | `reaction/<module>/<code>/<receiver>/<component>` |
 
-## Status
-```
-status/<module>/<sender>/<node>[/<component>]
-````
-
-Examples:
-```
-status/tlc/14/45fe        # S0014 current signal plan for the main component on node 45fe
-status/tlc/25/45fe/sg.1   # S0025 time-of-green for signal group 1 on node 45fe
-```
-
-## Command
-```
-command/<module>/<code>/<receiver>[/<component>]
-````
-
-Examples:
-```
-comamand/tlc/2/45fe             # M0002 set signal plan status (for main component) on node 45fe
-comamand/traffic/17/45fe/sg.1   # hyopthetical M0017 set detector treshold for sigmal group 1 on node 45fe
-```
-
-## Command Response
-```
-response/<module>/<code>/<sender>[/<component>]
-````
-
-Examples:
-```
-response/tlc/2/45fe             # responde to M0002 set signal plan status (for main component) on node 45fe
-response/traffic/17/45fe/sg.1   # response to hyopthetical M0017 set detector treshold for sigmal group 1 on node 45fe
-```
-
-## Alarm
-```
-alarm/<module>/<code>/<sender>[/<component>]
-````
-
-Examples:
-```
-alarm/tlc/1/45fe   # A0001 serious hardware error (for main component) on node 45fe
-alarm/tlc/301/45fe/dl.7   # A0301 serious deteector error for component dl.7 on node 45fe
-```
-
-## Alarm Reaction
-```
-reaction/<module>/<code>/<receiver>[/<component>]
-````
-
-Examples:
-```
-reaction/tlc/1/45fe   # reaction to A0001 serious hardware error (for main component) on node 45fe
-reaction/tlc/301/45fe/dl.7   # reaction A0301 serious deteector error for component dl.7 on node 45fe
-```
