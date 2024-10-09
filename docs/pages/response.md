@@ -1,3 +1,11 @@
+---
+layout: page
+title: Response
+parent: Message Types
+nav_order: 3
+permalink: /messages/response/
+---
+
 ## Command Response
 ```
 response/<module>/<code>/<sender>[/<component>]

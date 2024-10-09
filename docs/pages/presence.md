@@ -1,5 +1,13 @@
+---
+layout: page
+title: Presence
+parent: Message Types
+nav_order: 0
+permalink: /messages/presence/
+---
+
 # Presence
-Supervisors are informed whenever sites come online or go offline.
+Supervisors are informed whenever nodes come online or go offline.
 
 ```
 presence/<sender>
@@ -10,11 +18,8 @@ Examples:
 presence/45fe   # node 45fe went online/offline
 ```
 
-## Versioning
-Sites and supervisor must use compatible version of MQTT. This is handled by the MQTT protocol and the broker.
-
 ## Connect
-After connecting, the site publishes to the `state/<id>` topic, with a payload that indicates it's online: 
+After connecting, the node publishes to the `state/<id>` topic, with a payload that indicates it's online: 
 
 ```mermaid
  graph LR;
@@ -44,4 +49,4 @@ More about Last Will:
 https://www.hivemq.com/blog/mqtt-essentials-part-9-last-will-and-testament/
 
 ## Disconnected Supervisor
-Retained message should be used when publishing to `state/<id>`. If the supervisor is disconnected from the broker, the broker will retain the last messages send be each device. When the supervisor comes back online, it will immediately get the current state of all sites.
+Retained message should be used when publishing to `state/<id>`. If the supervisor is disconnected from the broker, the broker will retain the last messages send be each device. When the supervisor comes back online, it will immediately get the current state of all nodes.

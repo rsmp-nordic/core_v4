@@ -1,3 +1,9 @@
+---
+layout: page
+title: Components
+nav_order: 3
+---
+
 # Components
 A node has one or more components, representing physical of logical elements.
 
