@@ -1,3 +1,11 @@
+---
+layout: page
+title: Reaction
+parent: Message Types
+nav_order: 5
+permalink: /messages/reaction/
+---
+
 # Reaction
 ```
 reaction/<module>/<code>/<receiver>[/<component>]

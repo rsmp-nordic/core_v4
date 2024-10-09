@@ -1,3 +1,10 @@
+---
+layout: page
+title: Aggregated Status
+parent: Message Types
+nav_order: 6
+permalink: /messages/aggregate/
+---
 ## Aggregated Status
 We would perhaps consider this a status like any other, just defined to indicate the overall status of all components. It would be linked to the main component. Eg:
 

@@ -1,3 +1,9 @@
+---
+layout: page
+title: Topic Paths
+nav_order: 4
+---
+
 # Topic Paths
 All messages follow this topic path layout:
 

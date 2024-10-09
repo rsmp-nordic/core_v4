@@ -1,3 +1,11 @@
+---
+layout: page
+title: Command
+parent: Message Types
+nav_order: 2
+permalink: /messages/command/
+---
+
 ## Command
 ```
 command/<module>/<code>/<receiver>[/<component>]

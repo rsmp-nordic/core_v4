@@ -1,3 +1,9 @@
+---
+layout: page
+title: Nodules
+nav_order: 3
+---
+
 # Modules
 A node implement modules to support specific types or hardware or functionality, e.g. traffic light control, sensor data, log files or scenario management.
 

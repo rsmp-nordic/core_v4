@@ -1,9 +1,16 @@
-# MQTT
+---
+layout: page
+title: Background
+nav_order: 1
+permalink: /background/
+---
+# Background
+## Build on MQTT
 RSMP 4 is expected to be build on top of [MQTT](https://mqtt.org/), a protocol popular for IoT devices.
 
 MQTT is based on a publish-subscribe model with a broker in the middle and topics as a flexible way to route and filter message.
 
-## MQTT Broker
+### Broker
 In MQTT, clients all connect to the broker, which routes messages according to which topics are used when subscribing and publishing:
 
 ```mermaid
@@ -27,7 +34,7 @@ There is no inherent idea of a client vs. supervisor side in MQTT, it's all just
 ```
 Note that devices can talk to each other, and supervisors can also talk to each other (depending on how to design topic), via the broker.
 
-## MQTT Topics
+### Topics
 From https://www.hivemq.com/blog/mqtt-essentials-part-4-mqtt-publish-subscribe-unsubscribe/
 
 MQTT uses the topic name as a fundamental concept. It structures this name hierarchically using forward slashes as delimiters and creates a simple string. It’s similar to a URL path but without the protocol and domain components. MQTT topics are used to label messages and provide a way for clients to subscribe to specific messages.
