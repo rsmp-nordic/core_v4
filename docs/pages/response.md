@@ -13,6 +13,6 @@ response/<module>/<code>/<sender>[/<component>]
 
 Examples:
 ```
-response/tlc/2/45fe             # responde to M0002 set signal plan status (for main component) on node 45fe
-response/traffic/17/45fe/sg.1   # response to hyopthetical M0017 set detector treshold for sigmal group 1 on node 45fe
+response/tlc/2/45fe             # TLC M0002 (for main component) response from node 45fe
+response/sensor/17/45fe/dl/3    # Sensor M0017 for detector logic 3 from node 45fe
 ```
