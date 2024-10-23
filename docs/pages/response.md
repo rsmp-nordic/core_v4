@@ -7,7 +7,7 @@ permalink: /messages/response/
 ---
 
 ## Command Response
-A command reponses is published after receiving a command.
+A command reponses is published after handling a command.
 
 ```
 response/<module>/<code>/<sender>[/<component>]
