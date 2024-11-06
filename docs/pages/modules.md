@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Nodules
+title: Modules
 nav_order: 3
 ---
 

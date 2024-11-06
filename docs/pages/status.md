@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Status
-parent: Message Types
+parent: Messages
 nav_order: 1
 permalink: /messages/status/
 ---

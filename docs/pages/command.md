@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Command
-parent: Message Types
+parent: Messages
 nav_order: 2
 permalink: /messages/command/
 ---

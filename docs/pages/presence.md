@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Presence
-parent: Message Types
+parent: Messages
 nav_order: 0
 permalink: /messages/presence/
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Reaction
-parent: Message Types
+parent: Messages
 nav_order: 5
 permalink: /messages/reaction/
 ---

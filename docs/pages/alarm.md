@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Alarm
-parent: Message Types
+parent: Messages
 nav_order: 4
 permalink: /messages/alarm/
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Response
-parent: Message Types
+parent: Messages
 nav_order: 3
 permalink: /messages/response/
 ---

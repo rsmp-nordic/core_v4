@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Aggregated Status
-parent: Message Types
+parent: Messages
 nav_order: 6
 permalink: /messages/aggregate/
 ---
