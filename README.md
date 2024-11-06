@@ -3,12 +3,12 @@
 ## About
 This repository is used for work on the RSMP 4 draft specification, expected to be build on top of MQTT.
 
-View the [online draft](https://rsmp-nordic.github.io/rsmp_core_v4/)
+View the [online draft](https://rsmp-nordic.github.io/rsmp_core_v4/).
 
 Work is mandated by the RMSP Steering Group, and described in the [Activty Plan](
-https://rsmp-nordic.org/plan/#draft-for-core-specification-40-ongoing). Once a draft specification is ready, we will provide a recommendatition to the steering group about whether RSMP 4 should become an official specification.
+https://rsmp-nordic.org/plan/#draft-for-core-specification-40-ongoing).
 
-View [existing specifications](https://rsmp-nordic.org/specification/), including RMSP 3.
+View [existing RSMP specifications](https://rsmp-nordic.org/specification/), including RMSP 3.
 
 For general info about RSMP, please see the [RSMP Nordic website](https://rsmp-nordic-org).
 
