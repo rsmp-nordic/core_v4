@@ -60,8 +60,8 @@ sass:
 
 # Aux links for the upper right navigation
 aux_links:
-  "RSMP Nordic":
-    - "https://rsmp-nordic.org"
+  "GitHub":
+    - "https://github.com/rsmp-nordic/rsmp_core_v4"
 
 # Use our custom theme
 color_scheme: rsmp
