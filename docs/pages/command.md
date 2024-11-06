@@ -82,10 +82,10 @@ Or change the detector sensibility on all detector logics in all traffic lights:
 `command/all/all/detector/sensibility`
 
 
-## Response
-How would command responses be handled? We would use the request-response pattern, which is based on Response Topics. When you send a command, you pass a topic that would want to response to be published to. A supervisor sending a command could pass the response topic:
-`response/<supervisor_id>/component/module/command`.
+## Result
+How would command results be handled? We would use the request-result pattern, which is based on Result Topics. When you send a command, you pass a topic that would want to result to be published to. A supervisor sending a command could pass the result topic:
+`result/<supervisor_id>/component/module/command`.
 
-When a supervisor with id 22ba changing plan with `command/45fe/main/tlc/plan`, the respons would be send to `response/22ba/main/tlc/plan`.
+When a supervisor with id 22ba changing plan with `command/45fe/main/tlc/plan`, the respons would be send to `result/22ba/main/tlc/plan`.
 
-All supervisor can receive response if the just subscribe to `response/+/main/tlc/plan`.
+All supervisor can receive result if the just subscribe to `result/+/main/tlc/plan`.
