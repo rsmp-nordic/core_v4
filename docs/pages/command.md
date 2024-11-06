@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Command
 parent: Messages
 nav_order: 2

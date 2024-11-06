@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Response
 parent: Messages
 nav_order: 3

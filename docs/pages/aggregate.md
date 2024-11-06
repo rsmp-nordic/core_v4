@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Aggregated Status
 parent: Messages
 nav_order: 6

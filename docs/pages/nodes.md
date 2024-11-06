@@ -1,7 +1,6 @@
 ---
-layout: page
 title: Nodes
-nav_order: 2
+nav_order: 4
 ---
 
 # Nodes

@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Alarm
 parent: Messages
 nav_order: 4

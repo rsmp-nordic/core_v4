@@ -1,7 +1,6 @@
 ---
-layout: page
 title: Topic Paths
-nav_order: 4
+nav_order: 10
 ---
 
 # Topic Paths

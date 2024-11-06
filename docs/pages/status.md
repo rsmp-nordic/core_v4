@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Status
 parent: Messages
 nav_order: 1

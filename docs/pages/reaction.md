@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Reaction
 parent: Messages
 nav_order: 5

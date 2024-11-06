@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Presence
 parent: Messages
 nav_order: 0
