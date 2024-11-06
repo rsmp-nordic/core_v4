@@ -69,3 +69,6 @@ color_scheme: rsmp
 # disable processing of markdown files witouth frontmatter
 optional_front_matter:
   enabled: false
+
+mermaid:
+  version: 10

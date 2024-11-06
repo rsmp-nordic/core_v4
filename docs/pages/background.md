@@ -1,9 +1,7 @@
 ---
-layout: page
 title: Background
 nav_order: 1
 permalink: /background/
-mermaid: true
 ---
 # Background
 ## Build on MQTT
@@ -13,14 +11,6 @@ MQTT is based on a publish-subscribe model with a broker in the middle and topic
 
 ### Broker
 In MQTT, clients all connect to the broker, which routes messages according to which topics are used when subscribing and publishing:
-
-<div class="mermaid">
-graph LR
-    A --- B
-    B-->C[Happy]
-    B-->D(Sad);
-</div>
-
 
 ```mermaid
  graph LR;
