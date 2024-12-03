@@ -16,19 +16,20 @@ A stream defines how data is delived, including:
 - activation defaults
 - timeouts
 
-```mermaid
-graph LR
-A[Node A]-->|Stream 1| Broker
-A[Node A] -->|Stream 2| Broker
-Broker-->|Stream 1| B[Node B]
-Broker -->|Stream 2| C[Node C]
-Broker -->|Stream 2| D[Node D]
-```
-
 A node can have ome or more streams configured for each status type. 
 
 Unlike RSMP 3, you don't specify subscription settings when you start fetching data.
 Instead you choose between the already defined streams.
+
+```mermaid
+graph LR
+A[Service A]-->|traffic/1/live| Broker
+A[Service A] -->|traffic/1/hourly| Broker
+Broker-->|traffic/1/live| B[Manager A]
+Broker-->|traffic/1/hourly| B[Manager A]
+Broker -->|traffic/1/live| C[Manager B]
+Broker -->|traffic/1/hourly| D[Manager C]
+```
 
 If the node allows stream administration, consumers can add/edit streams.
 
