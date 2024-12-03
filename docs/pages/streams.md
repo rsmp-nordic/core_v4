@@ -16,9 +16,21 @@ A stream defines how data is delived, including:
 - activation defaults
 - timeouts
 
-A node can support one or more streams for a particular status type. Consumers of the data
-can only choose between the already defined streams. But if the node allows stream
-administration, a consumer can add/edit streams.
+```mermaid
+graph LR
+A[Node A]-->|Stream 1| Broker
+A[Node A] -->|Stream 2| Broker
+Broker-->|Stream 1| B[Node B]
+Broker -->|Stream 2| C[Node C]
+Broker -->|Stream 2| D[Node D]
+```
+
+A node can have ome or more streams configured for each status type. 
+
+Unlike RSMP 3, you don't specify subscription settings when you start fetching data.
+Instead you choose between the already defined streams.
+
+If the node allows stream administration, consumers can add/edit streams.
 
 ## Starting and stopping streams
 When you start a stream on a node, the starts publishing data to the associated topic path.
