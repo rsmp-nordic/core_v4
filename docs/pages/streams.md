@@ -7,7 +7,7 @@ nav_order: 7
 # Streams
 Status updates are delivered via _streams_.
 
-A stream defines how data is delived, including:
+A stream defines how status updates are delived, including:
 
 - attribute set
 - update rate
@@ -23,47 +23,60 @@ Instead you choose between the already defined streams.
 
 ```mermaid
 graph LR
-A[Service A]-->|traffic/1/live| Broker
-A[Service A] -->|traffic/1/hourly| Broker
-Broker-->|traffic/1/live| B[Manager A]
-Broker-->|traffic/1/hourly| B[Manager A]
-Broker -->|traffic/1/live| C[Manager B]
-Broker -->|traffic/1/hourly| D[Manager C]
+A[Service A]-->|traffic/live| Broker
+A[Service A] -->|traffic/hourly| Broker
+Broker-->|traffic/live| B[Manager A]
+Broker-->|traffic/hourly| B[Manager A]
+Broker -->|traffic/live| C[Manager B]
+Broker -->|traffic/hourly| D[Manager C]
 ```
 
 If the node allows stream administration, consumers can add/edit streams.
 
-## Starting and stopping streams
-When you start a stream on a node, the starts publishing data to the associated topic path.
+## Receiveing data
+To receive data the stream must be started and you must be subscribed to the associated topic path.
 
-Consumers still have to subscribe to the associated topic path to receive data.
+Starting and stopping a stream controls whether data is published to the
+associated topic path on the broker. If a stream is configured as on by default, you don't need to manually start it.
 
-When you stop a stream on a node, the node stops publishing data to the associated topic path.
+Subscribing to the associated topic path controls whether you receive
+data from the broker.
 
+## Starting and Stopping
+When you start a stream, it starts publishing data to broker,
+even if nobody has yet subscribed to the relevant topic path:
+
+```mermaid
+graph LR
+A[Service] -->|traffic/live| Broker
+```
+
+Consumers must be subscribed to the relevant topic path to receive data from the broker:
+
+```mermaid
+graph LR
+A[Service] -->|traffic/live| Broker
+Broker -->|traffic/live| B[Manager]
+```
+
+It doesn't matter whether you start the stream or subscribing to the topic path first.
+
+When you stop a stream, data is no longer publishhed to the broker.
+Consumers will no longer receive data, even if they are still subscribed to the relevant topic path:
+
+## Stream configuration
 ### Off by default
-Streams can be configured to be off by default, in which case a consumer must start the 
-stream before the ndoe starts publishing to the associated  topic path
+A stream configured as off by default must be started before it publishes data to the broker.
 
 ### On by default
-Streams can be configured to be on by default, in which case the node starts publishing
-as soon as it starts, and you don't need to explicitly start the stream.
-
-You can still stop the stream, in case you don't need the data anymore.
-
-### Always-on
-Streams can be configured to be always-on, in which case the node starts publishing
-as soon as it starts up. The stream cannot be stopped.
-
-The benefit is that you're garanteed that the data is always send to the broker.
+A stream configured as on by default starts publishing to the broker immediately after the node starts up.
 
 ## Listing Streams
-The node provides a list of streams available, with information about attribute set,
+The node provides a list of available streams, with information about attribute set,
 update rate, aggregation, etc.
 
 ## Stream Administration
-Streams are configured on a node.
-
-If the node supports stream administration, consumers can edit/add/remove steams.
+If a node supports stream administration, remote nodes can:
 
 - add new stream
 - edit existing stream
@@ -71,14 +84,18 @@ If the node supports stream administration, consumers can edit/add/remove steams
 
 Access to stream administration can be managed by access control lists on the broker.
 
-## Stream
-A streams can be configured to automatically stop when consumers disappear, or have
+## Pruning
+Streams can be configured to automatically stop when consumers disappear, or have
 been offline for a predefined period.
+
 This is useful for streams that take up significant bandwidth, and you want to be sure
 that they are stopped when not used anymore.
+
 Automatic stopping can be based on timeouts and `presence` message, which informs the node
 when other nodes go online/offline.
-[To be expanded.]
+
+[To be expanded]
+
 
 
 
