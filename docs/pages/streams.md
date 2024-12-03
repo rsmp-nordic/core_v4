@@ -70,7 +70,7 @@ Identifies the status with module name, and status code id, e.g. `tlc/2`.
 ### Attributes
 The set of attributes to include in status updates. For each attribute:
 - Type: Live (Send on Change), Lazy (send when other attributes change)
-- Aggregation: off, count, average, median, max, min. Requires update rate.
+- Aggregation: off, count, average, median, max, min. Aggration is done according to the key interval.
 
 ### Key Interval
 Interval to send full updates, which are retained on the broker.
@@ -84,9 +84,6 @@ If set to live, delta updates are send immediately when attributes changes.
 If set to a number, it indicating the number of delta updates between key updates.
 Update are send according to keyframe and delta intervals, not immediatelely
 when attributes change.
-
-### Aggregation
-Aggregation period, either off or e.g. minute, hour or day.
 
 ### Default State
 A stream configured as off by default must be started before it publishes data to the broker.
