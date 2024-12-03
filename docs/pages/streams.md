@@ -9,11 +9,12 @@ Status updates are delivered via _streams_.
 
 A stream defines how status updates are delived, including:
 
+- status module and code, e.g. tlc/2
 - attribute set
 - update rate
 - aggregation, e.g. sum and average
 - chunking. ie. gather multiple events in a single message
-- activation defaults
+- defaults state
 - timeouts
 
 A node can have ome or more streams configured for each status type. 
@@ -59,16 +60,36 @@ A[Service] -->|traffic/live| Broker
 Broker -->|traffic/live| B[Manager]
 ```
 
-It doesn't matter whether you start the stream or subscribing to the topic path first.
-
 When you stop a stream, data is no longer publishhed to the broker.
-Consumers will no longer receive data, even if they are still subscribed to the relevant topic path:
+Consumers will no longer receive data, even if they are still subscribed to the relevant topic path.
 
 ## Stream configuration
-### Off by default
-A stream configured as off by default must be started before it publishes data to the broker.
+### Status module and id
+Identifies the status with module name, and status code id, e.g. `tlc/2`.
 
-### On by default
+### Attributes
+The set of attributes to include in status updates. For each attribute:
+- Type: Live (Send on Change), Lazy (send when other attributes change)
+- Aggregation: off, count, average, median, max, min. Requires update rate.
+
+### Key Interval
+Interval to send full updates, which are retained on the broker.
+
+### Delta Interval
+Interval to send delta updates which contain only attributes that changed
+and are not retained on the broker.
+
+If set to live, delta updates are send immediately when attributes changes.
+
+If set to a number, it indicating the number of delta updates between key updates.
+Update are send according to keyframe and delta intervals, not immediatelely
+when attributes change.
+
+### Aggregation
+Aggregation period, either off or e.g. minute, hour or day.
+
+### Default State
+A stream configured as off by default must be started before it publishes data to the broker.
 A stream configured as on by default starts publishing to the broker immediately after the node starts up.
 
 ## Listing Streams
