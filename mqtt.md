@@ -73,6 +73,22 @@ is readily available.
 Adopting MQTT in RSMP means that we can focus on the content of the messages
 instead of the transport mechanisms.
 
+#### Scalability
+
+By leveraging load balancing, MQTT could distribute the communication load across
+multiple brokers, potentially enhancing system performance under heavy traffic.
+The ability to broadcast messages to groups of devices using topic hierarchies
+might further optimize message delivery. These features could contribute to better
+management of system load and improve overall resilience, ensuring uninterrupted
+communication even under failure or high-demand scenarios.
+
+```mermaid
+graph LR;
+  MQTT1<--->MQTT2;
+  MQTT1<--->MQTT3;
+  MQTT2<--->MQTT3;
+```
+
 ## MQTT Broker
 In MQTT, clients all connect to the broker, which routes messages according to which topics are used when subscribing and publishing:
 
